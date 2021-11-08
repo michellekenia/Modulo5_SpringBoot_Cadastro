@@ -2,7 +2,7 @@ package br.com.zup.Cadastros.cadastro.dtos;
 
 import javax.persistence.Column;
 
-public class PessoaDto {
+public class CadastroDto {
 
     private String cpf;
     private String nome;
@@ -14,10 +14,10 @@ public class PessoaDto {
     private boolean temPet;
     private int idade;
 
-    public PessoaDto() {
+    public CadastroDto() {
     }
 
-    public PessoaDto(String cpf, String nome, String sobrenome, String cidade, String bairro, String nomeDoParenteProximo, boolean moraSozinho, boolean temPet, int idade) {
+    public CadastroDto(String cpf, String nome, String sobrenome, String cidade, String bairro, String nomeDoParenteProximo, boolean moraSozinho, boolean temPet, int idade) {
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;

@@ -1,30 +1,35 @@
 package br.com.zup.Cadastros.cadastro;
 
-import br.com.zup.Cadastros.cadastro.dtos.PessoaDto;
+import br.com.zup.Cadastros.cadastro.dtos.CadastroDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Period;
+import java.time.LocalDate;
 
 @Service
 public class CadastroService {
     @Autowired
     private CadastroRepository cadastroRepository;
 
-    public void CadastrarPessoa(PessoaDto pessoaDto) {
+    public void CadastrarPessoa(CadastroDto cadastro) {
 
-        PessoaDto pessoa = new PessoaDto();
-        pessoa.setCpf(pessoaDto.getCpf());
-        pessoa.setNome(pessoaDto.getNome());
-        pessoa.setSobrenome(pessoaDto.getSobrenome());
-        pessoa.setCidade(pessoaDto.getCidade());
-        pessoa.setBairro(pessoaDto.getCidade());
-        pessoa.setNomeDoParenteProximo(pessoaDto.getNomeDoParenteProximo());
-        pessoa.setMoraSozinho(pessoaDto.isMoraSozinho());
-        pessoa.setTemPet(pessoaDto.isTemPet());
-        pessoa.setIdade(pessoaDto.getIdade());
+        LocalDate dataAtual = LocalDate.now();
 
-        cadastroRepository.save(pessoa);
+        Cadastro novoCadastro = new Cadastro();
+
+        novoCadastro.setCpf(cadastro.getCpf());
+        novoCadastro.setNome(cadastro.getNome());
+        novoCadastro.setSobrenome(cadastro.getSobrenome());
+        novoCadastro.setCidade(cadastro.getCidade());
+        novoCadastro.setBairro(cadastro.getCidade());
+        novoCadastro.setNomeDoParenteProximo(cadastro.getNomeDoParenteProximo());
+        novoCadastro.setMoraSozinho(cadastro.isMoraSozinho());
+        novoCadastro.setTemPet(cadastro.isTemPet());
+        novoCadastro.setIdade(cadastro.getIdade());
+        novoCadastro.setDataDoCadastro(dataAtual);
+
+        cadastroRepository.save(novoCadastro);
+
 
     }
 }

@@ -5,13 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class CadastroService {
     @Autowired
     private CadastroRepository cadastroRepository;
 
-    public void CadastrarPessoa(CadastroDto cadastro) {
+    public Cadastro CadastrarPessoa(CadastroDto cadastro) {
 
         LocalDate dataAtual = LocalDate.now();
 
@@ -31,5 +32,12 @@ public class CadastroService {
         cadastroRepository.save(novoCadastro);
 
 
+        return novoCadastro;
     }
+
+    public List <Cadastro> mostrarCadastros () {
+        Iterable <Cadastro> cadastros = cadastroRepository.findAll();
+        return (List <Cadastro>) cadastros;
+    }
+
 }

@@ -22,7 +22,7 @@ public class CadastroService {
         novoCadastro.setNome(cadastro.getNome());
         novoCadastro.setSobrenome(cadastro.getSobrenome());
         novoCadastro.setCidade(cadastro.getCidade());
-        novoCadastro.setBairro(cadastro.getCidade());
+        novoCadastro.setBairro(cadastro.getBairro());
         novoCadastro.setNomeDoParenteProximo(cadastro.getNomeDoParenteProximo());
         novoCadastro.setMoraSozinho(cadastro.isMoraSozinho());
         novoCadastro.setTemPet(cadastro.isTemPet());

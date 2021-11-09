@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface CadastroRepository extends CrudRepository<Cadastro, String> {
 
-    public List <Cadastro> findAll ();
+    List <Cadastro> findAll ();
+
+    List <Cadastro> findAllByMoraSozinho (boolean moraSozinho);
+
 }

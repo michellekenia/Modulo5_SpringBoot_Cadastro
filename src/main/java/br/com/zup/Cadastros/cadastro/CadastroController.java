@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cadastros")
@@ -21,14 +22,21 @@ public class CadastroController {
     }
 
     @GetMapping
-    public List <RetornoDto> mostrarTodosCadastros () {
-        List <RetornoDto> todosCadastros = new ArrayList<>();
+    public List<RetornoDto> mostrarTodosCadastros(@RequestParam Optional<Boolean> moraSozinho) {
+        List<RetornoDto> todosCadastros = new ArrayList<>();
 
-        for (Cadastro cadastro : cadastroService.mostrarCadastros()){
-            todosCadastros.add (new RetornoDto (cadastro.getCpf(), cadastro.getNome(), cadastro.getSobrenome()));
+        for (Cadastro cadastro : cadastroService.mostrarCadastros()) {
+            todosCadastros.add(new RetornoDto(cadastro.getCpf(), cadastro.getNome(), cadastro.getSobrenome()));
+        }
+
+        for (Cadastro cadastro: cadastroService.mostrarCadastrosMoraSozinho(moraSozinho.get())) {
+            todosCadastros.add (new RetornoDto(cadastro.getCpf(), cadastro.getNome(), cadastro.getSobrenome()));
         }
         return todosCadastros;
+
     }
+
+
 
 
 
